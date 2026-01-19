@@ -1,6 +1,6 @@
 package model;
 
-public class Membership implements Payable {
+public class Membership implements Training {
     private String type;
     private double price;
     private int durationMonth;

@@ -1,6 +1,6 @@
 package model;
 
-public interface Payable {
+public interface Training {
     void train();
     String getMembership();
 }
