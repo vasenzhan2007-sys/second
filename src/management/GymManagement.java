@@ -16,8 +16,8 @@ public class GymManagement implements Management {
         this.scanner = new Scanner(System.in);
 
         try {
-            allTrainer.add(new Personal("Aidos", 26, "Male", 5, 20));
-            allTrainer.add(new Group("Anel", 20, "Female", 3, 10));
+            allTrainer.add(new Personal(1 ,"Aidos", 26, "Male", 5, 20));
+            allTrainer.add(new Group(2, "Anel", 20, "Female", 3, 10));
             allMemberships.add(new Membership("Basic", 15000.00, 3));
             allMemberships.add(new Membership("Premium", 30000.00, 6));
             allMemberships.add(new Membership("Basic", 20000.00, 5));
@@ -106,6 +106,10 @@ public class GymManagement implements Management {
     private void addPersonal() {
         try {
             System.out.println("-----Add Personal trainer-----");
+            System.out.println("Enter Personal trainer ID: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+
             System.out.println("Enter Personal trainer name: ");
             String name = scanner.nextLine();
 
@@ -124,20 +128,24 @@ public class GymManagement implements Management {
             int personalClients = scanner.nextInt();
             scanner.nextLine();
 
-            Personal personal = new Personal(name, age, gender, experienceYears, personalClients);
+            Personal personal = new Personal(id, name, age, gender, experienceYears, personalClients);
             allTrainer.add(personal);
-            System.out.println("Personal trainer added successfully!");
+            System.out.println("Personal trainer added");
         } catch (java.util.InputMismatchException e) {
-            System.out.println("Error: Invalid input type!");
+            System.out.println("Invalid input");
             scanner.nextLine();
         } catch (IllegalArgumentException e) {
-            System.out.println("Validation Error: " + e.getMessage());
+            System.out.println("Validation error: " + e.getMessage());
         }
     }
 
     private void addGroup() {
         try {
             System.out.println("-----Add Group trainer-----");
+            System.out.println("Enter Group trainer ID: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+
             System.out.println("Enter Group trainer name: ");
             String name = scanner.nextLine();
 
@@ -156,9 +164,9 @@ public class GymManagement implements Management {
             int groupSize = scanner.nextInt();
             scanner.nextLine();
 
-            Group group = new Group(name, age, gender, experienceYears, groupSize);
+            Group group = new Group(id, name, age, gender, experienceYears, groupSize);
             allTrainer.add(group);
-            System.out.println("Group trainer added successfully");
+            System.out.println("Group trainer added!");
         } catch (java.util.InputMismatchException e) {
             System.out.println("Error: Invalid input type!");
             scanner.nextLine();
@@ -199,19 +207,18 @@ public class GymManagement implements Management {
     }
 
     private void viewPersonals() {
-        System.out.println("=====================================");
-        System.out.println("       PERSONAL TRAINERS ONLY");
-        System.out.println("=====================================");
+        System.out.println("=============================================");
+        System.out.println("          PERSONAL TRAINERS ONLY");
+        System.out.println("=============================================");
 
         boolean foundPersonal = false;
 
         for (Trainer t : allTrainer) {
             if (t instanceof Personal) {
                 Personal personal = (Personal) t;
-                System.out.println(personal.toString());
-                System.out.println(" Personal clients: " + personal.getPersonalClients());
+                System.out.println(" Clients: " + personal.getPersonalClients());
                 if (personal.isPopular()) {
-                    System.out.println("POPULAR PERSONAL TRAINER");
+                    System.out.println("Popular personal trainer");
                 }
                 System.out.println();
                 foundPersonal = true;
@@ -219,7 +226,7 @@ public class GymManagement implements Management {
         }
 
         if (!foundPersonal) {
-            System.out.println("No personal trainers found");
+            System.out.println("No personal trainers");
         }
     }
 

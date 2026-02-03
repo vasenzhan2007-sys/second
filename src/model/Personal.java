@@ -1,34 +1,48 @@
 package model;
 
 public class Personal extends Trainer {
+
     private int personalClients;
 
-    public Personal (String name, int age, String gender, int experienceYears, int personalClients) {
-        super(name, age, gender,experienceYears);
+    public Personal(int id,
+                    String name,
+                    int age,
+                    String gender,
+                    int experienceYears,
+                    int personalClients) {
+
+        super(id, name, age, gender, experienceYears);
         setPersonalClients(personalClients);
     }
 
-    public int getPersonalClients() { return personalClients; }
+    public int getPersonalClients() {
+        return personalClients;
+    }
 
     public void setPersonalClients(int personalClients) {
         if (personalClients < 0) {
-            throw new IllegalArgumentException("model.Personal clients cannot be negative");
+            throw new IllegalArgumentException("Personal clients cannot be negative");
         }
         this.personalClients = personalClients;
     }
 
     @Override
     public void work() {
-        System.out.println("model.Personal trainer " + name + " is training " + personalClients + " clients individually.");
+        System.out.println(
+                "Personal trainer " + name +
+                        " is training " + personalClients + " clients individually."
+        );
     }
 
     @Override
     public String getRole() {
-        return "model.Personal trainer";
+        return "Personal trainer";
     }
 
-    public void trainMember (String memberName) {
-        System.out.println("model.Personal trainer " + name + " is training: " + memberName);
+    public void trainMember(String memberName) {
+        System.out.println(
+                "Personal trainer " + name + " is training: " + memberName
+        );
     }
 
     public boolean isPopular() {
@@ -38,8 +52,8 @@ public class Personal extends Trainer {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Role: model.Personal trainer");
-        System.out.println("model.Personal clients: " + personalClients);
+        System.out.println("Role: Personal trainer");
+        System.out.println("Personal clients: " + personalClients);
         if (isPopular()) {
             System.out.println("POPULAR PERSONAL TRAINER");
         }
@@ -47,6 +61,6 @@ public class Personal extends Trainer {
 
     @Override
     public String toString() {
-        return super.toString() + " | model.Personal clients: " + personalClients;
+        return super.toString() + " | Personal clients: " + personalClients;
     }
 }

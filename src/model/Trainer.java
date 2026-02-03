@@ -1,22 +1,32 @@
 package model;
 
 public abstract class Trainer {
+    protected int id;
     protected String name;
     protected int age;
     protected String gender;
     protected int experienceYears;
 
-    public Trainer (String name, int age, String gender, int experienceYears){
+    public Trainer (int id, String name, int age, String gender, int experienceYears){
+        setId(id);
         setName(name);
         setAge(age);
         setGender(gender);
         setExperienceYears(experienceYears);
     }
 
+    public int getId() { return id; }
     public String getName() { return name; }
     public int getAge() { return age;}
     public String getGender() { return gender; }
     public int getExperienceYears() { return experienceYears; }
+
+    public void setId(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must be positive");
+        }
+        this.id = id;
+    }
 
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
@@ -50,6 +60,7 @@ public abstract class Trainer {
     }
 
     public void displayInfo() {
+        System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("Gender: " + gender);
@@ -65,6 +76,6 @@ public abstract class Trainer {
 
     @Override
     public String toString() {
-        return "[" + getRole() + "]" + name + " (Gender: " + gender + ") - " + age + " years old, " + experienceYears + " years exp";
+        return "[" + getRole() + "]" + name + " (ID: " + id + ") - " + age + " years old, " + gender + ", " + experienceYears + " experience years";
     }
 }
