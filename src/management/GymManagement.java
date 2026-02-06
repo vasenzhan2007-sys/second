@@ -30,7 +30,7 @@ public class GymManagement implements Management {
     @Override
     public void displayManagement() {
         System.out.println("\n╔════════════════════════════════════════╗");
-        System.out.println("║         MAIN MENU - Week 8            ║");
+        System.out.println("║         MAIN MENU - Week 8             ║");
         System.out.println("╚════════════════════════════════════════╝");
         System.out.println("┌─ GYM MANAGEMENT ─────────────────────┐");
         System.out.println("│ 1. Add Personal                      │");
@@ -133,7 +133,7 @@ public class GymManagement implements Management {
         try {
             System.out.println("\n┌─ ADD Personal Trainer ─────────────────────────────┐");
 
-            System.out.print("│ Enter Personal TRainer ID: ");
+            System.out.print("│ Enter Personal Trainer ID: ");
             int id = scanner.nextInt();
             scanner.nextLine();
 
@@ -230,7 +230,7 @@ public class GymManagement implements Management {
                 System.out.println((i + 1) + ". " + personal.toString());
                 System.out.println("   Personal clients: " + personal.getPersonalClients());
                 if (personal.isPopular()) {
-                    System.out.println(" POPULAT PERSONAL TRAINER ");
+                    System.out.println(" POPULAR PERSONAL TRAINER ");
                 }
                 System.out.println();
             }
@@ -440,7 +440,7 @@ public class GymManagement implements Management {
         System.out.println("─────────────────────────────────────────");
 
         if (results.isEmpty()) {
-            System.out.println("📭 No trainer found matching criteria.");
+            System.out.println("No trainer found matching criteria.");
         } else {
             for (int i = 0; i < results.size(); i++) {
                 Trainer t = results.get(i);

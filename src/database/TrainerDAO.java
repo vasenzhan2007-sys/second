@@ -25,7 +25,7 @@ public class TrainerDAO {
      * INSERT Personal into database
      */
     public static boolean insertPersonal(Personal personal) {
-        String sql = "INSERT INTO trainer (name, age, gender, staff_type, experience_years, personalClients) " +
+        String sql = "INSERT INTO trainer (name, age, gender, trainer_type, experience_years, personalClients) " +
                 "VALUES (?, ?, ?, 'PERSONAL', ?, NULL)";
 
         Connection connection = DatabaseConnection.getConnection();

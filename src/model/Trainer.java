@@ -95,9 +95,9 @@ public abstract class Trainer {
 //        System.out.println("║  GYM MANAGEMENT SYSTEM v2.0    ║");
 //        System.out.println("║  Week 8: Fully Database-Driven 🗄️     ║");
 //        System.out.println("╚════════════════════════════════════════╝");
-//        System.out.println("✅ All data is stored in PostgreSQL");
-//        System.out.println("✅ No in-memory ArrayLists");
-//        System.out.println("✅ Complete CRUD operations");
+//        System.out.println("All data is stored in PostgreSQL");
+//        System.out.println("No in-memory ArrayLists");
+//        System.out.println("Complete CRUD operations");
 //    }
 //
 //    @Override
@@ -234,10 +234,10 @@ public abstract class Trainer {
 //            TrainerDAO.insertPersonal(personal);
 //
 //        } catch (java.util.InputMismatchException e) {
-//            System.out.println("❌ Error: Invalid input type!");
+//            System.out.println("Error: Invalid input type!");
 //            scanner.nextLine();
 //        } catch (IllegalArgumentException e) {
-//            System.out.println("❌ Validation Error: " + e.getMessage());
+//            System.out.println("Validation Error: " + e.getMessage());
 //        }
 //    }
 //
@@ -273,10 +273,10 @@ public abstract class Trainer {
 //            TrainerDAO.insertGroup(group);
 //
 //        } catch (java.util.InputMismatchException e) {
-//            System.out.println("❌ Error: Invalid input type!");
+//            System.out.println("Error: Invalid input type!");
 //            scanner.nextLine();
 //        } catch (IllegalArgumentException e) {
-//            System.out.println("❌ Validation Error: " + e.getMessage());
+//            System.out.println("Validation Error: " + e.getMessage());
 //        }
 //    }
 //
@@ -296,7 +296,7 @@ public abstract class Trainer {
 //        System.out.println("╚════════════════════════════════════════╝");
 //
 //        if (personals.isEmpty()) {
-//            System.out.println("📭 No personal trainers in database.");
+//            System.out.println("No personal trainers in database.");
 //        } else {
 //            for (int i = 0; i < personals.size(); i++) {
 //                Personal personal = personals.get(i);
@@ -513,7 +513,7 @@ public abstract class Trainer {
 //        System.out.println("─────────────────────────────────────────");
 //
 //        if (results.isEmpty()) {
-//            System.out.println("📭 No trainer found matching criteria.");
+//            System.out.println("No trainer found matching criteria.");
 //        } else {
 //            for (int i = 0; i < results.size(); i++) {
 //                Trainer t = results.get(i);
