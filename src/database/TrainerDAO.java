@@ -13,7 +13,7 @@ import java.util.List;
  * - UPDATE ✓ NEW!
  * - DELETE ✓ NEW!
  * - SEARCH by name ✓ NEW!
- * - SEARCH by salary range ✓ NEW!
+ * - SEARCH by age range ✓ NEW!
  */
 public class TrainerDAO {
 
@@ -24,7 +24,7 @@ public class TrainerDAO {
     /**
      * INSERT Personal into database
      */
-    public boolean inserPersonal(Personal personal) {
+    public static boolean insertPersonal(Personal personal) {
         String sql = "INSERT INTO trainer (name, age, gender, staff_type, experience_years, personalClients) " +
                 "VALUES (?, ?, ?, 'PERSONAL', ?, NULL)";
 
@@ -33,7 +33,7 @@ public class TrainerDAO {
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, personal. getName());
+            statement.setString(1, personal.getName());
             statement.setInt(2, personal.getAge());
             statement.setString(3, personal.getGender());
             statement.setInt(4, personal.getExperienceYears());
@@ -59,7 +59,7 @@ public class TrainerDAO {
     /**
      * INSERT Group into database
      */
-    public boolean insertGroup(Group group) {
+    public static boolean insertGroup(Group group) {
         String sql = "INSERT INTO trainer (name, age, gender, staff_type, experience_years, groupSize) " +
                 "VALUES (?, ?, ?, 'GROUP', ?, NULL)";
 
@@ -99,7 +99,7 @@ public class TrainerDAO {
      * SELECT ALL trainers
      * @return List of Trainer (Personal and Group objects)
      */
-    public List<Trainer> getAllTrainer() {
+    public static List<Trainer> getAllTrainer() {
         List<Trainer> trainerList = new ArrayList<>();
         String sql = "SELECT * FROM trainer ORDER BY trainer_id";
 
@@ -135,7 +135,7 @@ public class TrainerDAO {
     /**
      * SELECT trainer by ID
      */
-    public Trainer getTrainerById(int trainerId) {
+    public static Trainer getTrainerById(int trainerId) {
         String sql = "SELECT * FROM trainer WHERE trainer_id = ?";
 
         Connection connection = DatabaseConnection.getConnection();
@@ -178,7 +178,7 @@ public class TrainerDAO {
     /**
      * SELECT all Personals
      */
-    public List<Personal> getAllPersonals() {
+    public static List<Personal> getAllPersonals() {
         List<Personal> personals = new ArrayList<>();
         String sql = "SELECT * FROM trainer WHERE trainer_type = 'PERSONAL' ORDER BY trainer_id";
 
@@ -214,7 +214,7 @@ public class TrainerDAO {
     /**
      * SELECT all Groups
      */
-    public List<Group> getAllGroups() {
+    public static List<Group> getAllGroups() {
         List<Group> groups = new ArrayList<>();
         String sql = "SELECT * FROM trainer WHERE trainer_type = 'GROUP' ORDER BY trainer_id";
 
@@ -260,7 +260,7 @@ public class TrainerDAO {
     // PERSONAL from DB
     // PERSONAL set change
     // update personal
-    public boolean updatePersonal(Personal personal) {
+    public static boolean updatePersonal(Personal personal) {
         String sql = "UPDATE trainer SET name = ?, age = ?, gender = ?, personal_clients = ? " +
                 "WHERE trainer_id = ? AND trainer_type = 'PERSONAL'";
 
@@ -384,7 +384,7 @@ public class TrainerDAO {
      * @param name Name or partial name to search
      * @return List of matching trainer
      */
-    public List<Trainer> searchByName(String name) {
+    public static List<Trainer> searchByName(String name) {
         List<Trainer> trainerList = new ArrayList<>();
 
         // ILIKE for case-insensitive search, % for partial match
@@ -431,7 +431,7 @@ public class TrainerDAO {
      * @param maxAge Maximum age (inclusive)
      * @return List of trainer in age range
      */
-    public List<Trainer> searchByAgeRange(int minAge, int maxAge) {
+    public static List<Trainer> searchByAgeRange(int minAge, int maxAge) {
         List<Trainer> trainerList = new ArrayList<>();
 
         String sql = "SELECT * FROM trainer WHERE age BETWEEN ? AND ? ORDER BY age DESC";
@@ -474,7 +474,7 @@ public class TrainerDAO {
      * @param minAge Minimum age
      * @return List of trainer earning at least minAge
      */
-    public List<Trainer> searchByMinAge(int minAge) {
+    public static List<Trainer> searchByMinAge(int minAge) {
         List<Trainer> trainerList = new ArrayList<>();
 
         String sql = "SELECT * FROM trainer WHERE age >= ? ORDER BY age DESC";
@@ -518,7 +518,7 @@ public class TrainerDAO {
      * Extract Trainer object from ResultSet
      * Creates Personal or Group based on trainer_type
      */
-    private Trainer extractTrainerFromResultSet(ResultSet resultSet) throws SQLException {
+    private static Trainer extractTrainerFromResultSet(ResultSet resultSet) throws SQLException {
         int trainerId = resultSet.getInt("trainer_id");
         String name = resultSet.getString("name");
         int age = resultSet.getInt("age");
@@ -548,7 +548,7 @@ public class TrainerDAO {
     /**
      * Display all trainer in console
      */
-    public void displayAllTrainer() {
+    public static void displayAllTrainer() {
         List<Trainer> trainerList = getAllTrainer();
 
         System.out.println("\n========================================");
@@ -572,7 +572,7 @@ public class TrainerDAO {
     /**
      * Demonstrate polymorphism with database data
      */
-    public void demonstratePolymorphism() {
+    public static void demonstratePolymorphism() {
         List<Trainer> trainerList = getAllTrainer();
 
         System.out.println("\n========================================");
