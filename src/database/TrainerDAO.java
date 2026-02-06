@@ -422,7 +422,7 @@ public class TrainerDAO {
     }
 
     // ========================================
-    // WEEK 8: SEARCH BY SALARY RANGE
+    // WEEK 8: SEARCH BY AGE RANGE
     // ========================================
 
     /**

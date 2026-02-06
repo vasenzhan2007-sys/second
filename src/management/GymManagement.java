@@ -19,12 +19,12 @@ public class GymManagement implements Management {
         this.trainerDAO = new TrainerDAO();
 
         System.out.println("\n╔════════════════════════════════════════╗");
-        System.out.println("║  GYM MANAGEMENT SYSTEM v2.0    ║");
-        System.out.println("║  Week 8: Fully Database-Driven 🗄️     ║");
+        System.out.println("║  GYM MANAGEMENT SYSTEM v2.0            ║");
+        System.out.println("║  Week 8: Fully Database-Driven         ║");
         System.out.println("╚════════════════════════════════════════╝");
-        System.out.println("✅ All data is stored in PostgreSQL");
-        System.out.println("✅ No in-memory ArrayLists");
-        System.out.println("✅ Complete CRUD operations");
+        System.out.println("All data is stored in PostgreSQL");
+        System.out.println("No in-memory ArrayLists");
+        System.out.println("Complete CRUD operations");
     }
 
     @Override
@@ -161,10 +161,10 @@ public class GymManagement implements Management {
             TrainerDAO.insertPersonal(personal);
 
         } catch (java.util.InputMismatchException e) {
-            System.out.println("❌ Error: Invalid input type!");
+            System.out.println("Error: Invalid input type!");
             scanner.nextLine();
         } catch (IllegalArgumentException e) {
-            System.out.println("❌ Validation Error: " + e.getMessage());
+            System.out.println("Validation Error: " + e.getMessage());
         }
     }
 
@@ -200,10 +200,10 @@ public class GymManagement implements Management {
             TrainerDAO.insertGroup(group);
 
         } catch (java.util.InputMismatchException e) {
-            System.out.println("❌ Error: Invalid input type!");
+            System.out.println("Error: Invalid input type!");
             scanner.nextLine();
         } catch (IllegalArgumentException e) {
-            System.out.println("❌ Validation Error: " + e.getMessage());
+            System.out.println("Validation Error: " + e.getMessage());
         }
     }
 
