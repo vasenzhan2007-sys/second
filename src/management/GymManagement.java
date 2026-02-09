@@ -99,8 +99,8 @@ public class GymManagement implements Management {
                     case 0:
                         running = false;
                         System.out.println("\n╔════════════════════════════════════════╗");
-                        System.out.println("║  Thank you for using our system!      ║");
-                        System.out.println("║  Goodbye!                             ║");
+                        System.out.println("║  Thank you for using our system!       ║");
+                        System.out.println("║  Goodbye!                              ║");
                         System.out.println("╚════════════════════════════════════════╝");
                         break;
                     default:
