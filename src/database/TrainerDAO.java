@@ -25,7 +25,7 @@ public class TrainerDAO {
      * INSERT Personal into database
      */
     public static boolean insertPersonal(Personal personal) {
-        String sql = "INSERT INTO trainer (name, age, gender, trainer_type, experience_years, personalClients) " +
+        String sql = "INSERT INTO trainer (name, age, gender, trainer_type, experience_years, personal_clients) " +
                 "VALUES (?, ?, ?, 'PERSONAL', ?, NULL)";
 
         Connection connection = DatabaseConnection.getConnection();
@@ -60,7 +60,7 @@ public class TrainerDAO {
      * INSERT Group into database
      */
     public static boolean insertGroup(Group group) {
-        String sql = "INSERT INTO trainer (name, age, gender, staff_type, experience_years, groupSize) " +
+        String sql = "INSERT INTO trainer (name, age, gender, trainer_type, experience_years, group_size) " +
                 "VALUES (?, ?, ?, 'GROUP', ?, NULL)";
 
         Connection connection = DatabaseConnection.getConnection();
